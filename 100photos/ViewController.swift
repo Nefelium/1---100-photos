@@ -21,7 +21,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // можно было бы создать класс ячейки, но в рамках конкретной задачи, считаю, достаточно и этого
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) // переиспользование ячеек
         let url = URL(string: array100[indexPath.row])
-        downloadImage(withURL: url!, forCell: cell)
+        if let url = url {
+        downloadImage(withURL: url, forCell: cell)
+        }
         return cell
     }
     
